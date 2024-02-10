@@ -19,6 +19,15 @@
                         <h2>Sign up</h2>
                     </div>
                     <div class="card-body">
+                        <?php if (isset($_SESSION["emailExists"])) { ?>
+                            <div class="alert alert-warning text-center"><?= $_SESSION["emailExists"]; ?></div>
+                        <?php }
+                        unset($_SESSION["emailExists"]) ?>
+
+                        <?php if (isset($_SESSION["success"])) { ?>
+                            <div class="alert alert-success text-center"><?= $_SESSION["success"]; ?></div>
+                        <?php }
+                        unset($_SESSION["success"]) ?>
                         <form action="signupData.php" method="POST">
 
                             <div class="mb-3">
